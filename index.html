@@ -28,7 +28,7 @@
   /* Set up the initial map center and zoom level */
   var map = L.map('map', {
     center: [52.0755760494074, 4.331037998199464], // EDIT coordinates to re-center map
-    zoom: 15,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
+    zoom: 16,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
     scrollWheelZoom: false,
     tap: false
   });
@@ -41,6 +41,16 @@
         <a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
 
+  L.tileLayer(
+      'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
+  	    attribution: '&copy; <a href="http://www.thunderforest.com/">
+          Thunderforest</a>, &copy;
+          <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	        apikey: '<your apikey>',
+	          maxZoom: 22
+  }).addTo(map);
+    
+    
   /* Display a point marker with pop-up text */
   L.marker([52.081078548014716, 4.324091076850892]).addTo(map) // EDIT marker coordinates
   .bindPopup("Centraal Station"); // EDIT pop-up text message
