@@ -52,17 +52,17 @@
   var baseLayers = {
         '<b>Cartographic Map<b>':  CartoMap
         '<b>Cycle Map<b>': CycleMap
-    }
+    };
     
 
    var layerControls = L.control.layers(baseLayers, {}, {
         collapsed: false,    
         position: 'bottomleft'
-   }).addTo(mymap)
+   }).addTo(map);
 
    map.on('click', function(e){
         console.log(e.latlng)
-   })
+   });
 	
 	  
   
