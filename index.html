@@ -30,42 +30,21 @@
     center: [52.0755760494074, 4.331037998199464], // EDIT coordinates to re-center map
     zoom: 16,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
     scrollWheelZoom: false,
-    tap: false,
-    layers: [CycleMap]
+    tap: false
   });
 
   /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
  
-   var CartoMap =  L.tileLayer(
+  L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://osm.org/copyright">\
         OpenStreetMap</a> contributors, &copy;\
         <a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
 
-   var CycleMap = L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=1d5c95ce923e437aaca68dfdff1db5e5', {
-	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	apikey: '1d5c95ce923e437aaca68dfdff1db5e5y',
-	maxZoom: 22
-  }).addTo(map);
-	  
-  var baseLayers = {
-        '<b>Cartographic Map<b>':  CartoMap
-        '<b>Cycle Map<b>': CycleMap
-    };
-    
 
-   var layerControls = L.control.layers(baseLayers, {}, {
-        collapsed: false,    
-        position: 'bottomleft'
-   }).addTo(map);
+   
 
-   map.on('click', function(e){
-        console.log(e.latlng)
-   });
-	
-	  
-  
     
   /* Display a point marker with pop-up text */
   var CSMarker = L.marker([52.081078548014716, 4.324091076850892]).addTo(map) // EDIT marker coordinates
